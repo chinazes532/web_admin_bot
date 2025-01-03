@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Редактировать текст{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h3>Редактировать текст</h3>
+    <form method="POST">
+        <div class="form-group mt-3 mb-3">
+            <label for="title">Заголовок</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ text.title }}" required>
+        </div>
+        <div class="form-group mt-3 mb-3">
+            <label for="main_text">Основной текст</label>
+            <textarea class="form-control" id="main_text" name="main_text" rows="5" required>{{ text.main_text }}</textarea>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+        <a href="{{ url_for('texts', text_id=text.text_id) }}" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>
+{% endblock %}

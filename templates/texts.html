@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Текст в боте{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <h3>Текст в боте</h3>
+    <div class="row">
+        {% for text in texts %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ text.title }}</h5>
+                        <p class="card-text">{{ text.main_text }}</p>
+                        <a href="/texts/{{ text.text_id }}/edit" class="btn btn-primary">Изменить</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.2s; /* Плавный переход при наведении */
+    }
+    .card:hover {
+        transform: scale(1.05); /* Увеличение карточки при наведении */
+    }
+</style>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Пользователи{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <h3>Текущие пользователи бота:</h3>
+    <ul class="user-list">
+        {% for user in users %}
+            <li class="user-item">
+                <strong>{{ user.username }}</strong> (ID: {{ user.user_id }})
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<style>
+    .user-list {
+        list-style-type: none; /* Убираем маркеры списка */
+        padding: 0; /* Убираем отступы */
+        margin: 0; /* Убираем внешние отступы */
+    }
+    .user-item {
+        background-color: #f9f9f9; /* Цвет фона для элемента списка */
+        border: 1px solid #ddd; /* Рамка вокруг элемента списка */
+        border-radius: 5px; /* Закругление углов */
+        padding: 10px; /* Внутренние отступы */
+        margin-bottom: 10px; /* Отступ между элементами списка */
+        transition: background-color 0.3s; /* Плавный переход цвета фона */
+    }
+    .user-item:hover {
+        background-color: #e0e0e0; /* Цвет фона при наведении */
+    }
+</style>
+
+{% endblock %}
